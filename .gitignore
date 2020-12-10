@@ -1,0 +1,6 @@
+#
+#  Hardware working files
+#
+hardware/*.gcode
+hardware/*.stl
+
