@@ -125,6 +125,10 @@ module LOCAL_pan_panel(tilt_shaft)
       translate([25, 4.5, 100]) rotate([90, 0, 0]) cylinder(r=tilt_shaft, h=5);
       translate([25, 4.5, 20]) rotate([90, 0, 0]) cylinder(r=7, h=5);
       translate([25, 4.5, 80]) rotate([90, 0, 0]) cylinder(r=10, h=5);
+      translate([4, 4.5, 12]) rotate([90, 0, 0]) cylinder(r=2, h=5);
+      translate([4, 4.5, 18]) rotate([90, 0, 0]) cylinder(r=2, h=5);
+      translate([46, 4.5, 12]) rotate([90, 0, 0]) cylinder(r=2, h=5);
+      translate([46, 4.5, 18]) rotate([90, 0, 0]) cylinder(r=2, h=5);
       translate([25, 4.5, 100-d1-d2]) rotate([90, 0, 0]) bbs_NEMA17_holes(5, true);
     }
   }
@@ -205,9 +209,9 @@ module drive_gear()
   }
 }
 
-rotate([0, -90, 0]) foot();
+//rotate([0, -90, 0]) foot();
 //base(screw_8_size()/2);
-//translate([0, 0, 5]) pan(screw_8_size()/2, screw_8_size()/2);
+translate([0, 0, 5]) pan(screw_8_size()/2, screw_8_size()/2);
 //translate([0, -54, 104]) rotate([-90, 0, 0]) color("green") tilt(screw_8_size()/2);
 //translate([0, 54, 104]) rotate([-90, 0, 180]) color("red") tilt(screw_8_size()/2);
 //translate([0, -50, 104-pitch_radius(5, 50)-pitch_radius(5, 20)]) rotate([90, 7, 0])tilt_gear();

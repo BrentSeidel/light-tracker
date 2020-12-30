@@ -1,4 +1,5 @@
 use <../../Things/bbs_constants.scad>
+use <../../Things/bbs_connectors.scad>
 
 module LOCAL_led(height)
 {
@@ -17,6 +18,7 @@ module phototransitor_mount()
       cube([40, 80, 4]);
       translate([0, 39, 0]) cube([40, 2, 40]);
       translate([19, 20, 0]) cube([2, 40, 40]);
+      translate([-20, 0, 0]) cube([20, 30, 4]);
     }
     union()
     {
@@ -28,8 +30,9 @@ module phototransitor_mount()
       translate([14, 46, 0]) LOCAL_led(5);
       translate([26, 34, 0]) LOCAL_led(5);
       translate([26, 46, 0]) LOCAL_led(5);
+      translate([-10, 15, -0.5]) rotate([0, 0, 90]) bbs_d_cutout(1, 5);
     }
   }
 }
 
-rotate([0, 0, 90]) phototransitor_mount();
+rotate([0, 0, 0]) phototransitor_mount();
