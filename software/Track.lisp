@@ -22,8 +22,10 @@
 (defun setup ()
   (stepper-init 1 22 23 24 25)
   (stepper-init 2 28 29 30 31)
-  (setq pan-pos 0)
-  (setq tilt-pos 0))
+  (setq *PAN_POS* 0)
+  (setq *TILT_POS* 0)
+  (setq *PAN-DEAD* 10)
+  (setq *TILT-DEAD* 10))
 ;
 ;  Perform tracking for a specified number of steps.  Right now, the steps are
 ;  limited to help prevent runaway during testing.
@@ -34,10 +36,16 @@
     (setq a2 (read-analog 2))
     (setq a3 (read-analog 3))
     (setq a4 (read-analog 4))
-    (if (> (+ a1 a2) (+ a3 a4)) (step 2 -1))
-    (if (< (+ a1 a2) (+ a3 a4)) (step 2 1))
-    (if (> (+ a1 a3) (+ a2 a4)) (step 1 -1))
-    (if (< (+ a1 a3) (+ a2 a4)) (step 1 1)))
+    (print "Sum " (+ a1 a2 a3 a4))
+    (terpri)
+    (if (> (+ a1 a2) (+ a3 a4 *TILT-DEAD*))
+      (progn (step 2 -1)))
+    (if (< (+ a1 a2 *TILT-DEAD*) (+ a3 a4))
+      (progn (step 2 1)))
+    (if (> (+ a1 a3) (+ a2 a4 *PAN-DEAD*))
+      (progn (step 1 -1)))
+    (if (< (+ a1 a3 *PAN-DEAD*) (+ a2 a4))
+      (progn (step 1 1))))
   (stepper-off 1)
   (stepper-off 2))
 ;
