@@ -193,13 +193,6 @@ module tilt(tilt_shaft)
 //
 //  Drive gears for the stepper motors
 //
-//  This gear has 20 teath, the tilt gear has 50 teeth.  This is a 2:5 gear ratio.  The stepper motor
-//  is 400 steps per revolution, so with the gearing it should take 1000 steps to completely rotate
-//  the tilt frame.  This is 0.36 degrees per step or 2.78 steps per degree.
-//
-//  The pan gear has 100 teeth.  This is a 1:5 gear ratio.  There should thus be 2000 steps to completely
-//  rotate the pan head, giving 0.18 degrees per steps or 5.56 steps per degree.
-//
 module drive_gear()
 {
   difference()

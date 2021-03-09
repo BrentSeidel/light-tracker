@@ -12,6 +12,8 @@
 \usepackage{fancyvrb}
 \usepackage{fancybox}
 
+\usepackage{gensymb}
+
 \usepackage{url}
 %
 % Rules to allow import of graphics files in EPS format
@@ -68,9 +70,15 @@ The light tracker was conceived as a way to test a 3-D printed pan and tilt plat
 \chapter{Hardware}
 \section{Electronics}
 \subsection{Micro-controller Requirements}
-There are four photo-transistors light sensors, thus 4 analog inputs are required.  Each stepper motor requires 4 digital output lines.  For the two steppers, a total of 8 outputs are required.  Should limit switches be added, a few digital inputs will also be required.
+There are four photo-transistors light sensors, thus 4 analog inputs are required.  Each stepper motor requires 4 digital output lines.  For the two steppers, a total of 8 outputs are required.  Should limit switches be added, a few digital inputs will also be required.  The micro-controller that I'm using is an Arduino Due, which has ample resources for this project.
 
 \section{Mechanical}
+\subsection{Gearing}
+Both stepper motors have a 20 tooth gear and are 400 steps per revolution.
+
+The tilt gear has 50 teeth giving a $\frac{2}{5}$ gear ratio.  With the gearing, 1000 steps of the motor will completely rotate the tilt frame.  This is 0.36\degree per step or 2.78 steps per degree.
+
+The pan gear has 100 teeth giving a $\frac{1}{5}$ gear ratio.  With the gearing, 2000 steps of the motor will completely rotate the pan head, giving 0.18\degree per steps or 5.56 steps per degree.
 
 %----------------------------------------------------------
 \chapter{Software}
