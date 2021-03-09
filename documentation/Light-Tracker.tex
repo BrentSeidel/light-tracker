@@ -1,0 +1,79 @@
+\documentclass[10pt, openany]{book}
+
+\usepackage{fancyhdr}
+\usepackage{imakeidx}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage{geometry}
+\geometry{letterpaper}
+
+\usepackage{fancyvrb}
+\usepackage{fancybox}
+
+\usepackage{url}
+%
+% Rules to allow import of graphics files in EPS format
+%
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.eps}
+\DeclareGraphicsRule{.eps}{eps}{.eps}{}
+%
+%  Include the listings package
+%
+\usepackage{listings}
+%
+%  Define Tiny Lisp based on Common Lisp
+%
+\lstdefinelanguage[Tiny]{Lisp}[]{Lisp}{morekeywords=[13]{atomp, bit-vector-p, car, cdr, char-downcase, char-code, char-upcase, compiled-function-p, dowhile, dump, exit, fresh-line, if, code-char, lambda, msg, nullp, parse-integer, peek8, peek16, peek32, poke8, poke16, poke32, quote, read-line, reset, setq, simple-bit-vector-p, simple-string-p, simple-vector-p, string-downcase, string-upcase}}
+%
+% Macro definitions
+%
+\newcommand{\operation}[1]{\textbf{\texttt{#1}}}
+\newcommand{\package}[1]{\texttt{#1}}
+\newcommand{\function}[1]{\texttt{#1}}
+\newcommand{\constant}[1]{\emph{\texttt{#1}}}
+\newcommand{\keyword}[1]{\texttt{#1}}
+\newcommand{\datatype}[1]{\texttt{#1}}
+\newcommand{\tl}{Tiny-Lisp}
+\newcommand{\cl}{Common Lisp}
+%
+% Front Matter
+%
+\title{Light Tracker}
+\author{Brent Seidel \\ Phoenix, AZ}
+\date{ \today }
+%========================================================
+%%% BEGIN DOCUMENT
+\begin{document}
+%
+% Produce the front matter
+%
+\frontmatter
+\maketitle
+\begin{center}
+This document is \copyright 2021 Brent Seidel.  All rights reserved.
+
+\paragraph{}Note that this is a draft version and not the final version for publication.
+\end{center}
+\tableofcontents
+
+\mainmatter
+%----------------------------------------------------------
+\chapter{Introduction}
+The light tracker was conceived as a way to test a 3-D printed pan and tilt platform.
+
+%----------------------------------------------------------
+\chapter{Hardware}
+\section{Electronics}
+\subsection{Micro-controller Requirements}
+There are four photo-transistors light sensors, thus 4 analog inputs are required.  Each stepper motor requires 4 digital output lines.  For the two steppers, a total of 8 outputs are required.  Should limit switches be added, a few digital inputs will also be required.
+
+\section{Mechanical}
+
+%----------------------------------------------------------
+\chapter{Software}
+
+\end{document}
+
