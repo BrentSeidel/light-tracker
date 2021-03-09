@@ -1,6 +1,24 @@
-#
-#  Hardware working files
-#
-hardware/*.gcode
-hardware/*.stl
+# Object file
+*.o
+
+# Ada Library Information
+*.ali
+*.stderr
+*.stdout
+*.bexch
+*.db
+*.db-shm
+*.db-wal
+*.cgpr
+*.db
+lib/*
+obj/*
+*.cswi
+*.lexch
+
+# Latex auxiliary files
+documentation/*.aux
+documentation/*.log
+documentation/*.synctex.gz
+documentation/*.toc
 
