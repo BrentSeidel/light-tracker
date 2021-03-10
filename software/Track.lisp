@@ -4,14 +4,6 @@
   (print "Analog 3 = " (read-analog 3)) (terpri)
   (print "Analog 4 = " (read-analog 4)) (terpri))
 ;
-;  Sensors are:
-;
-;   4 | 3
-;  ---+---
-;   2 | 1
-;        [connector]
-;
-;
 ;  Steppers are:
 ;  1 - Pan (step + is clockwise)
 ;  2 - Tilt (step+ is tilt up
@@ -66,19 +58,4 @@
   (terpri)
   (stepper-off 1)
   (stepper-off 2))
-;
-;  Looking at the pins of a male connector, the pins are numbered as follows:
-;  1   2   3   4   5
-;    6   7   8   9
-;
-;  Connector pinout for stepper motors.
-;  1 - H1, MA+ (gpio 22 green)
-;  2 - H1, MB+ (gpio 24 red)
-;  3 - n.c.
-;  4 - H2, MA+ (gpio 28 green)
-;  5 - H2, MB+ (gpio 30 red)
-;  6 - H1, MA- (gpio 23 grey)
-;  7 - H1, MB- (gpio 25 yellow)
-;  8 - H2, MA- (gpio 29 grey)
-;  9 - H2, MB- (gpio 31 yellow)
 
