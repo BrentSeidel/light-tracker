@@ -4,10 +4,6 @@
   (print "Analog 3 = " (read-analog 3)) (terpri)
   (print "Analog 4 = " (read-analog 4)) (terpri))
 ;
-;  Steppers are:
-;  1 - Pan (step + is clockwise)
-;  2 - Tilt (step+ is tilt up
-;
 ;--
 ;  Initialize the stepper controls and global variables
 ;

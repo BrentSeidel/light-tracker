@@ -88,6 +88,7 @@ Each light sensor consists of a photo-transistor in series with a 1k$\Omega$ res
 \end{figure}
 
 \subsection{Stepper Motor Control}
+The stepper motors are controller by two TB6612 dual H-bridge controllers (Adafruit p/n 2448).  Each of these controls one of the stepper motors.  The first one, H1 is used to control the panning motor and the other one, H2 is used to control the tilt motor.
 
 \subsection{Connections}
 Both the controller and the pan tilt have two DB9 connectors (see figure \ref{fig:D9}).  One is used for the sensors (see table \ref{tbl:Sensor}) and the other is used for the stepper motors (see table \ref{tbl:Stepper}).
