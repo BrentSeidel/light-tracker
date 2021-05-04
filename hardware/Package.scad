@@ -5,6 +5,7 @@ use <../../Things/bbs_connectors.scad>
 use <../../Things/bbs_constants.scad>
 use <../../Things/bbs_panel.scad>
 use <../../Things/bbs_rack.scad>
+use <../../Things/bbs_switches.scad>
 use <../../Things/bbs_tray.scad>
 //
 //  This file contains items for mounting and housing the electronics to control the light-tracker.
@@ -53,7 +54,7 @@ module rack()
   bbs_rack(5, 7, 3);
 }
 
-module panel()
+module connector_panel()
 {
   difference()
   {
@@ -70,10 +71,30 @@ module panel()
   }
 }
 
+module switch_panel()
+{
+  difference()
+  {
+    bbs_panel(5, 2);
+    union()
+    {
+      translate([20, 90, -0.1]) bbs_spdt_switch_cutout(2.2);
+      translate([20, 70, -0.1]) bbs_spdt_switch_cutout(2.2);
+      translate([20, 50, -0.1]) bbs_spdt_switch_cutout(2.2);
+      translate([20, 30, -0.1]) bbs_spdt_switch_cutout(2.2);
+      translate([7, 90, 1.5]) linear_extrude(height = 0.6) rotate([0, 0, -90])
+              text("Stop", halign="center", valign="center", size=6, font="Liberation Sans:Bold");
+      translate([30, 90, 1.5]) linear_extrude(height = 0.6) rotate([0, 0, -90])
+              text("Run", halign="center", valign="center", size=6, font="Liberation Sans:Bold");
+    }
+  }
+}
+
 //tray();
 //translate([150, 70, 10]) rotate([0, 0, 90]) color("red") bbs_tb6612();
 //translate([115, 70, 10]) rotate([0, 0, 90]) color("red") bbs_tb6612();
 //translate([0, 10, 10]) color("green") bbs_arduino_mega2560();
 //translate([110, 10, 10]) color("red") bbs_quarter_permaprotoboard();
-rack();
-//panel();
+//rack();
+//connector_panel();
+switch_panel();
