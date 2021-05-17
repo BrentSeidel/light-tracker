@@ -18,6 +18,17 @@
   (stepper-off 1)
   (stepper-off 2))
 ;
+;  Display the values from the ADCs
+;
+(defun display-values (a1 a2 a3 a4)
+  (print *ESC* "[10;10H" *ESC* "[2K" a4)
+  (print *ESC* "[10;30H" a3)
+  (print *ESC* "[15;10H" *ESC* "[2K" a2)
+  (print *ESC* "[15;30H" a1)
+  (print *ESC* "[20;1H" *ESC* "[2K")
+  (print "Sum " (+ a1 a2 a3 a4)))
+
+;
 ;  Perform tracking for a specified number of steps.  Right now, the steps are
 ;  limited to help prevent runaway during testing.
 ;
@@ -33,12 +44,7 @@
       (setq a2 (+ a2 (analog-read 2)))
       (setq a3 (+ a3 (analog-read 3)))
       (setq a4 (+ a4 (analog-read 4)))
-      (print *ESC* "[10;10H" *ESC* "[2K" a4)
-      (print *ESC* "[10;30H" a3)
-      (print *ESC* "[15;10H" *ESC* "[2K" a3)
-      (print *ESC* "[15;30H" a1)
-      (print *ESC* "[20;1H" *ESC* "[2K")
-      (print "Sum " (+ a1 a2 a3 a4))
+      (display-values a1 a2 a3 a4)
       (if (> (+ a1 a2) (+ a3 a4 *TILT-DEAD*))
         (progn
           (stepper-step 2 -1)
